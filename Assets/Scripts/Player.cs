@@ -6,12 +6,16 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public GameManager gameManagerScript;
     public GameObject floor;
+    public GameObject restartUI;
+    public GameObject winUI;
+    public GameObject platform;
     public Material currentFloorMaterial;
     public Material pastFloorMaterial;
-    public GameObject restartUI;
+    public float speed = 10.0f;
+
     float horizontalMovement;
     float verticalMovement;
-    public float speed = 10.0f;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +57,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "Enemy" || collision.collider.tag == "DeathZone")
+        if (collision.collider.tag == "Enemy" || collision.collider.tag == "DeathZone")
         {
             //create a canvas for death screen
 
@@ -63,12 +67,25 @@ public class Player : MonoBehaviour
 
             //Destroy(this.gameObject);
         }
-        else if(collision.collider.tag == "Goal")
+        else if (collision.collider.tag == "Goal")
         {
+            gameObject.SetActive(false);
+            winUI.SetActive(true);
             //add end game condition.
         }
 
-        
-    }
+        else if (collision.collider.tag == "BounceBack")
+        {
+            //bounce back functionality
+            gameObject.transform.position = new Vector3(60.0f, -1.2f, 0);
+        }
 
+        else if (collision.collider.tag == "PlatformButton")
+        {
+            //platform movement functionality
+            platform.transform.position = new Vector3(75.16f, platform.transform.position.y - 6.0f, 0);
+
+            //Debug.Log("Button collision. ");
+        }
+    }
 }

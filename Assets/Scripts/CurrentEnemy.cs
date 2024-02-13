@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CurrentEnemyMovement : MonoBehaviour
+public class CurrentEnemy : MonoBehaviour
 {
     //this is a test comment line
     float horizontalMovement;

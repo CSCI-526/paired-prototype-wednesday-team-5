@@ -3,10 +3,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public GameObject gameManager;
+    [HideInInspector]
     public GameManager gameManagerScript;
     public GameObject floor;
     public Material currentFloorMaterial;
     public Material pastFloorMaterial;
+    public GameObject restartUI;
     float horizontalMovement;
     float verticalMovement;
     public float speed = 10.0f;
@@ -48,5 +50,21 @@ public class Player : MonoBehaviour
         }
 
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "Enemy")
+        {
+            //create a canvas for death screen
+
+            //Destroy the player
+            gameObject.SetActive(false);
+            restartUI.SetActive(true);
+
+            //Destroy(this.gameObject);
+        }
+
+        
+    }
+
 }

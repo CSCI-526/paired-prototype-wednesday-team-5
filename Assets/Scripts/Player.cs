@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "Enemy")
+        if(collision.collider.tag == "Enemy" || collision.collider.tag == "DeathZone")
         {
             //create a canvas for death screen
 
@@ -62,6 +62,10 @@ public class Player : MonoBehaviour
             restartUI.SetActive(true);
 
             //Destroy(this.gameObject);
+        }
+        else if(collision.collider.tag == "Goal")
+        {
+            //add end game condition.
         }
 
         

@@ -26,8 +26,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        horizontalMovement = Input.GetAxis("Horizontal");
-        verticalMovement = Input.GetAxis("Vertical");
+        horizontalMovement = Input.GetAxisRaw("Horizontal");
+        verticalMovement = Input.GetAxisRaw("Vertical");
         if (horizontalMovement > 0)
             transform.Translate(Vector3.right * speed * Time.deltaTime * horizontalMovement);
         else

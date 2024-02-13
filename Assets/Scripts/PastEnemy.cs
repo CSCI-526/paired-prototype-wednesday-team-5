@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PastEnemyMovement : MonoBehaviour
+public class PastEnemy : MonoBehaviour
 {
 
     float horizontalMovement;

@@ -33,8 +33,7 @@ public class Player : MonoBehaviour
 
     void TimeSwitch()
     {
-        Debug.Log("Time switch in player. ");
-        Debug.Log("The player value if bool is " + gameManagerScript.isCurrentTimeLine);
+        Debug.Log("The player value in bool is " + gameManagerScript.isCurrentTimeLine);
 
         if (gameManagerScript.isCurrentTimeLine)
         {

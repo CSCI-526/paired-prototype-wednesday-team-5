@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -23,18 +23,21 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
+            isCurrentTimeLine = !isCurrentTimeLine;
             if (isCurrentTimeLine)
             {
+                Debug.Log("Game Manager: Current. ");
                 current.SetActive(true);
                 past.SetActive(false);
             }
             else
             {
+                Debug.Log("Game Manager: Past. ");
                 current.SetActive(false);
                 past.SetActive(true);
             }
             Debug.Log("C is pressed. ");
-            isCurrentTimeLine = !isCurrentTimeLine;
+            //isCurrentTimeLine = !isCurrentTimeLine;
             Debug.Log("the bool variable is : " + isCurrentTimeLine);
         }
     }
